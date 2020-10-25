@@ -1,4 +1,4 @@
-interface NotesState {
+export interface NotesState {
    notes: string[]
 }
 
