@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 
+interface Props {
+   addNote: (note: string)  => void;
+}
 
-
-const HomePage = () => {
+const HomePage: React.FC<Props> = ({addNote}) => {
    const [note, setNote] = useState('');
 
    const getNoteValue = (e: { target: { value: React.SetStateAction<string>; }; }) => {
@@ -11,6 +13,7 @@ const HomePage = () => {
 
    const onAddNoteClick = () => {
       console.log('what is this value? ', note);
+      addNote(note);
    }
    return (
       <div>
