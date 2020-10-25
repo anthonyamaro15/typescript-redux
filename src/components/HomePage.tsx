@@ -12,8 +12,8 @@ const HomePage: React.FC<Props> = ({addNote}) => {
    }
 
    const onAddNoteClick = () => {
-      console.log('what is this value? ', note);
       addNote(note);
+      setNote('');
    }
    return (
       <div>
