@@ -9,8 +9,8 @@ const initialState = {
 
 
 type Action = {
-   type: 'ADD_NOTE'
-   payload: string
+   type: string
+   payload: any
 }
 export const notesReducer = (state: NotesState = initialState, action: Action) => {
    switch(action.type) {
@@ -21,6 +21,13 @@ export const notesReducer = (state: NotesState = initialState, action: Action) =
          }
          
       }
+      case "REMOVE_NOTE": {
+         return {
+            ...state,
+            notes: action.payload
+         }
+      }
+      
       default:
          return state;
    }
