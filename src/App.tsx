@@ -10,12 +10,17 @@ function App() {
    const addNote = (note: string) => {
       dispatch({type: 'ADD_NOTE', payload: note});
    }
+
+   const removeNote = (note: string) => {
+      const filteredData = notes.filter(del => del !== note);
+      dispatch({type: 'REMOVE_NOTE', payload: filteredData});
+   }
   return (
     <div className="App">
      <HomePage addNote={addNote} />
      <div>
         {notes.map((note, i) => (
-           <p key={i}>{note}</p>
+           <p key={i} onClick={() => removeNote(note)}>{note}</p>
         ))}
      </div>
     </div>
